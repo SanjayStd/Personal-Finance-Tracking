@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h1>Personal Finance Tracker</h1>
+
+    <div class="container">
+        <div class="form-container">
+            <!-- Income Form -->
+            <div class="income">
+                <h2>Add Income</h2>
+                <form action="/add_income" method="post">
+                    <label for="income_type">Type:</label>
+                    <input type="text" name="income_type" required>
+                    <label for="income_amount">Amount:</label>
+                    <input type="number" name="income_amount" required>
+                    <button type="submit" class="btn">Add Income</button>
+                </form>
+            </div>
+
+            <!-- Expense Form -->
+            <div class="expense">
+                <h2>Add Expense</h2>
+                <form action="/add_expense" method="post">
+                    <label for="expense_type">Type:</label>
+                    <input type="text" name="expense_type" required>
+                    <label for="expense_amount">Amount:</label>
+                    <input type="number" name="expense_amount" required>
+                    <button type="submit" class="btn">Add Expense</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Display Total Income, Expense & Balance -->
+        <div class="totals">
+            <h3>Total Income: ₹{{ total_income }}</h3>
+            <h3>Total Expenses: ₹{{ total_expense }}</h3>
+            <h3>Balance: ₹{{ balance }}</h3>
+        </div>
+
+        <!-- Show Chart Button -->
+        <button class="btn" onclick="showCharts()" >Show Charts</button>
+
+        <!-- Chart Section (Hidden by Default) -->
+        <div class="charts" id="chartSection" style="display: none;">
+            <div>
+                <h3>Income Breakdown</h3>
+                <img src="{{ url_for('static', filename='income_pie_chart.png') }}" alt="Income Pie Chart">
+            </div>
+            <div>
+                <h3>Expense Breakdown</h3>
+                <img src="{{ url_for('static', filename='expense_pie_chart.png') }}" alt="Expense Pie Chart">
+            </div>
+            <div>
+                <h3>Income vs Expense</h3>
+                <img src="{{ url_for('static', filename='bar_chart.png') }}" alt="Bar Chart">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showCharts() {
+            document.getElementById('chartSection').style.display = 'flex';
+        }
+    </script>
+
+</body>
+</html>

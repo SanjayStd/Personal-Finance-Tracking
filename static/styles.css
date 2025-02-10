@@ -1,0 +1,147 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Main Container */
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    padding: 30px;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Form Layout */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Forms */
+.income, .expense {
+    width: 48%;
+    max-width: 350px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.income:hover, .expense:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Labels and Inputs */
+label {
+    display: block;
+    font-weight: 600;
+    margin-top: 12px;
+    text-align: left;
+    font-size: 14px;
+    color: #444;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Buttons */
+.btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+.btn:active::after {
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 0;
+}
+button[type="submit"] { 
+    background: #007bff; color: white; 
+    color: white; 
+}
+
+.btn-green { background: #28a745; color: white; }
+.btn-green:hover { background: #218838; transform: scale(1.05); }
+
+.btn-red { background: #dc3545; color: white; }
+.btn-red:hover { background: #c82333; transform: scale(1.05); }
+
+.btn-blue { background: #007bff; color: white; }
+.btn-blue:hover { background: #0056b3; transform: scale(1.05); }
+
+/* Charts Section */
+.charts {
+    display: none;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.charts div {
+    width: 48%;
+    padding: 12px;
+}
+
+img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .income, .expense {
+        width: 100%;
+    }
+
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .charts {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
